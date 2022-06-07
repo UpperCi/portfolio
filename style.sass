@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Karla:wght@300;400;500;600;700&display=swap')
+
+$white: #F6F5F6
+$green: #00D158
+$black: #2E2A28
+$red: #FA6446
+
+@mixin text-stroke($size, $col)
+	-webkit-text-stroke-width: $size
+	-webkit-text-stroke-color: $col
+
+
+
+*
+	box-sizing: border-box
+
+
+:root
+	--sidebar-width: 22.5%
+
+
+body
+	background-color: black
+	margin: 0
+	color: $white
+	font-family: 'Karla', sans-serif
+	display: flex
+
+	main
+		$padding-v: 4rem
+		$padding-h: 2rem
+		padding: $padding-v $padding-h
+		background-color: $green
+		margin: 0
+		width: calc(100% - var(--sidebar-width))
+		height: 100vh
+
+		h1
+			margin: 0
+
+
+.window
+	$top-radius: 20px
+	$btm-radius: 6px
+	margin: 0 6rem
+	height: calc(100% - 12rem)
+	font-family: 'Karla', sans-serif
+
+	.title-bar
+		height: 3rem
+		background-color: $black
+		border-radius: $top-radius $top-radius 0 0
+		display: flex
+		justify-content: right
+
+		button
+			font-weight: bold
+			background-color: transparent
+			outline: none
+			border: none
+			color: $white
+			margin: 0
+			padding: 3px
+			width: 3rem
+			font-size: 30px
+			cursor: pointer
+
+			&:hover
+				background-color: $white
+				color: $black
+
+			&.exit
+				border-top-right-radius: $top-radius
+				&:hover
+					background-color: $red
+	
+	.content
+		padding: 1.5rem
+		color: $black
+		font-size: 24px
+		background-color: $white
+		height: 100%
+		border-radius: 0 0 $btm-radius $btm-radius
+
+		h1
+			margin: 0.5rem 0
+		
+		p
+			margin-top: 0
+			margin-bottom: 2rem
+		
+		img
+			float: right
+			max-width: 40%
+			border-radius: 8px
+			margin-left: 4rem
+			margin-bottom: 4rem
+			margin-right: 2rem
+			margin-top: 2rem
+
+
+.brand
+	display: block
+	background-color: $black
+	border-radius: 100rem
+	padding: 0.5rem 0
+	width: fit-content
+	max-width: 90%
+	margin: 0 auto
+	margin-bottom: 2rem
+
+	h1
+		text-align: center
+		font-size: 52px
+		color: $black
+		+text-stroke(2px, $white)
+		margin: 0 3rem
+
+		font-family: 'Carter One', sans-serif
+
+
+aside 
+	position: fixed
+	top: 0
+	right: 0
+	color: $black
+	background-color: $white
+	width: var(--sidebar-width)
+	height: 100vh
+
+	li, ul
+		list-style-type: none
+
+	.break
+		margin: 0 auto
+		width: 70%
+		height: 0px
+		border-bottom: 2px solid $black
+	
+	ul
+		&:not(.active)
+			cursor: pointer
+		
+		text-align: center
+		width: 70%
+		padding: 16px 16px
+		margin: 2rem auto
+		border-radius: 64px
+		border: 2px solid $white
+		font-weight: 400
+
+		button
+			cursor: inherit
+				
+			background-color: #00000000
+			font-size: 44px
+			border: none
+			font-weight: inherit
+
+		transition: background-color .3s, border .3s, font-weight .15s, box-shadow .25s		
+
+		&:hover
+			border: 2px solid $black
+			// color: $white
+			// font-weight: 700
+		
+		&.active
+			box-shadow: none
+			font-weight: 700
+			background-color: $black
+			button
+				color: $white
+			border: 2px solid $black
