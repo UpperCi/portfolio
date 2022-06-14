@@ -119,6 +119,20 @@ body
 		font-family: 'Carter One', sans-serif
 
 
+@mixin project-item($img-url)
+	padding: 8px
+	background-image: url(#{$img-url}.png)
+	
+	&:hover, &.active, &:focus-within
+		background-image: url(#{$img-url}_Selected.png)
+		
+	&.active
+		background-color: $green
+
+	button
+		font-size: 0
+
+
 aside 
 	position: fixed
 	top: 0
@@ -136,7 +150,34 @@ aside
 		width: 70%
 		height: 0px
 		border-bottom: 2px solid $black
-	
+
+	#projects
+		display: flex
+		flex-wrap: wrap
+		width: 80%
+		margin: 0 auto
+
+		ul
+			width: 120px
+			height: 120px
+			background-size: 80%
+			background-repeat: no-repeat
+			background-position: center
+			margin: 1rem auto
+			// border-radius: 
+			border: none
+			background-color: transparent
+
+			button
+				height: 100%
+				width: 100%
+
+		#windows
+			@include project-item("icons/Windows")
+		
+		#apple
+			@include project-item("icons/Apple")
+
 	ul
 		&:not(.active)
 			cursor: pointer
@@ -157,9 +198,14 @@ aside
 			border: none
 			font-weight: inherit
 
+			&:focus
+				border-radius: 4px
+				outline: none
+
 		transition: background-color .3s, border .3s, font-weight .15s, box-shadow .25s		
 
-		&:hover
+
+		&:hover, &:focus-within
 			border: 2px solid $black
 			// color: $white
 			// font-weight: 700

@@ -122,6 +122,52 @@ aside .break {
   height: 0px;
   border-bottom: 2px solid #2E2A28;
 }
+aside #projects {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+aside #projects ul {
+  width: 120px;
+  height: 120px;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 1rem auto;
+  border: none;
+  background-color: transparent;
+}
+aside #projects ul button {
+  height: 100%;
+  width: 100%;
+}
+aside #projects #windows {
+  padding: 8px;
+  background-image: url(icons/Windows.png);
+}
+aside #projects #windows:hover, aside #projects #windows.active, aside #projects #windows:focus-within {
+  background-image: url(icons/Windows_Selected.png);
+}
+aside #projects #windows.active {
+  background-color: #00D158;
+}
+aside #projects #windows button {
+  font-size: 0;
+}
+aside #projects #apple {
+  padding: 8px;
+  background-image: url(icons/Apple.png);
+}
+aside #projects #apple:hover, aside #projects #apple.active, aside #projects #apple:focus-within {
+  background-image: url(icons/Apple_Selected.png);
+}
+aside #projects #apple.active {
+  background-color: #00D158;
+}
+aside #projects #apple button {
+  font-size: 0;
+}
 aside ul {
   text-align: center;
   width: 70%;
@@ -142,7 +188,11 @@ aside ul button {
   border: none;
   font-weight: inherit;
 }
-aside ul:hover {
+aside ul button:focus {
+  border-radius: 4px;
+  outline: none;
+}
+aside ul:hover, aside ul:focus-within {
   border: 2px solid #2E2A28;
 }
 aside ul.active {

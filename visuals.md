@@ -21,3 +21,11 @@ Makkelijk te lezen font.
 - Wat/hoe/waarom ik doe
 - Projecten
 - Contact
+
+# Projecten
+- Windows XP React [React, MongoDB, NodeJS + ExpressJS, REST API]
+- Surely Beauty [PHP, MySQL]
+- Decision Tree UI [JS, Decision Tree AI]
+- Catch [ML5 AI, JS]
+- Wordle Bot [Python]
+- Claire [Express JS MVC, MySQL + Sequelize (ORM), Decision Tree]
