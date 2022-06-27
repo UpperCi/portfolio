@@ -87,14 +87,10 @@ body main h1 {
   font-size: 30px;
   cursor: pointer;
 }
-.window .title-bar button:hover {
-  background-color: #F6F5F6;
-  color: #2E2A28;
-}
 .window .title-bar button.exit {
   border-top-right-radius: 20px;
 }
-.window .title-bar button.exit:hover {
+.window .title-bar button.exit:hover, .window .title-bar button.exit:focus {
   background-color: #FA6446;
 }
 .window .content {
@@ -115,11 +111,47 @@ body main h1 {
 .window .content img {
   float: right;
   max-width: 40%;
+  max-height: calc(100% - 6rem);
   border-radius: 8px;
   margin-left: 4rem;
-  margin-bottom: 4rem;
   margin-right: 2rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+}
+
+.project-view {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: calc(100% - 72px - 3rem);
+  align-content: stretch;
+}
+.project-view .project-view-button {
+  padding: 0;
+  flex-basis: calc(30% - 36px);
+  flex-grow: 1.5;
+  max-height: 50%;
+  margin: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 16px;
+  background: black;
+  opacity: 100%;
+  transition: all 0.2s;
+}
+.project-view .project-view-button:hover, .project-view .project-view-button:focus {
+  margin: 0;
+  max-height: calc(50% + 36px);
+  opacity: 60%;
+}
+.project-view .project-view-button img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 16px;
 }
 
 .brand {
@@ -182,10 +214,10 @@ aside #projects ul button {
 }
 aside #projects #windows {
   padding: 8px;
-  background-image: url(icons/Windows.png);
+  background-image: url(icons/Windows.svg);
 }
 aside #projects #windows:hover, aside #projects #windows.current, aside #projects #windows:focus-within {
-  background-image: url(icons/Windows_Selected.png);
+  background-image: url(icons/Windows_Selected.svg);
 }
 aside #projects #windows.current {
   background-color: #00D158;
@@ -195,10 +227,10 @@ aside #projects #windows button {
 }
 aside #projects #apple {
   padding: 8px;
-  background-image: url(icons/Apple.png);
+  background-image: url(icons/Apple.svg);
 }
 aside #projects #apple:hover, aside #projects #apple.current, aside #projects #apple:focus-within {
-  background-image: url(icons/Apple_Selected.png);
+  background-image: url(icons/Apple_Selected.svg);
 }
 aside #projects #apple.current {
   background-color: #00D158;
@@ -208,10 +240,10 @@ aside #projects #apple button {
 }
 aside #projects #wordle {
   padding: 8px;
-  background-image: url(icons/Wordle.png);
+  background-image: url(icons/Wordle.svg);
 }
 aside #projects #wordle:hover, aside #projects #wordle.current, aside #projects #wordle:focus-within {
-  background-image: url(icons/Wordle_Selected.png);
+  background-image: url(icons/Wordle_Selected.svg);
 }
 aside #projects #wordle.current {
   background-color: #00D158;
@@ -221,10 +253,10 @@ aside #projects #wordle button {
 }
 aside #projects #dt {
   padding: 8px;
-  background-image: url(icons/Tree.png);
+  background-image: url(icons/Tree.svg);
 }
 aside #projects #dt:hover, aside #projects #dt.current, aside #projects #dt:focus-within {
-  background-image: url(icons/Tree_Selected.png);
+  background-image: url(icons/Tree_Selected.svg);
 }
 aside #projects #dt.current {
   background-color: #00D158;
@@ -234,10 +266,10 @@ aside #projects #dt button {
 }
 aside #projects #claire {
   padding: 8px;
-  background-image: url(icons/Claire.png);
+  background-image: url(icons/Claire.svg);
 }
 aside #projects #claire:hover, aside #projects #claire.current, aside #projects #claire:focus-within {
-  background-image: url(icons/Claire_Selected.png);
+  background-image: url(icons/Claire_Selected.svg);
 }
 aside #projects #claire.current {
   background-color: #00D158;
@@ -280,6 +312,11 @@ aside ul.current {
 }
 aside ul.current button {
   color: #F6F5F6;
+}
+
+#dani {
+  background-color: #315539;
+  border-radius: 6rem;
 }
 
 /*# sourceMappingURL=style.css.map */

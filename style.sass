@@ -96,13 +96,13 @@ body
 			font-size: 30px
 			cursor: pointer
 
-			&:hover
-				background-color: $white
-				color: $black
+			// &:hover
+			// 	background-color: $white
+			// 	color: $black
 
 			&.exit
 				border-top-right-radius: $top-radius
-				&:hover
+				&:hover, &:focus
 					background-color: $red
 	
 	.content
@@ -123,12 +123,50 @@ body
 		img
 			float: right
 			max-width: 40%
+			max-height: calc(100% - 6rem)
 			border-radius: 8px
 			margin-left: 4rem
-			margin-bottom: 4rem
 			margin-right: 2rem
-			margin-top: 2rem
+			margin-top: 1.5rem
+			
 
+.project-view
+	$margin: 18px
+	
+	display: flex
+	flex-wrap: wrap
+	flex-direction: row
+	height: calc(100% - $margin * 4 - 3rem)
+	align-content: stretch
+	
+	.project-view-button
+		padding: 0
+		flex-basis: calc(30% - $margin * 2)
+		flex-grow: 1.5
+		max-height: 50%
+		margin: $margin
+		border: none
+		cursor: pointer
+		border-radius: 16px
+		background: black
+		opacity: 100%
+		
+		&:hover, &:focus
+			margin: 0
+			max-height: calc(50% + $margin * 2)
+			opacity: 60%
+		
+		img
+			width: 100%
+			height: 100%
+			margin: 0
+			padding: 0
+			max-height: 100%
+			max-width: 100%
+			object-fit: cover
+			border-radius: 16px
+			
+		transition: all 0.2s
 
 .brand
 	display: block
@@ -152,10 +190,10 @@ body
 
 @mixin project-item($img-url)
 	padding: 8px
-	background-image: url(#{$img-url}.png)
+	background-image: url(#{$img-url}.svg)
 	
 	&:hover, &.current, &:focus-within
-		background-image: url(#{$img-url}_Selected.png)
+		background-image: url(#{$img-url}_Selected.svg)
 		
 	&.current
 		background-color: $green
@@ -257,4 +295,8 @@ aside
 			button
 				color: $white
 			border: 2px solid $black
+
+#dani
+	background-color: #315539
+	border-radius: 6rem
 
