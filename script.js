@@ -111,20 +111,22 @@ function loopCanvas(ms) {
 	ctx.fillRect(0, 0, w, h);
 	ctx.fillStyle = "#2E2A28";
 	ctx.beginPath();
-	let y = h * 0.75;
-	ctx.moveTo(0, y);
 	
 	const bigSpd = 0.2;
 	const bigW = 1 / 35;
 	const bigH = 40;
 	
-	const smallSpd = 1.55;
-	const smallW = 1 / 500;
-	const smallH = 40;
+	const smallSpd = 1;
+	const smallW = 1 / 1000;
+	const smallH = 60;
+	let y = h * 0.7 + Math.sin((d * smallSpd) * smallW) * smallH;
 	
-	for (let x = 0; x < w + 100; x += 20) {
+	ctx.moveTo(0, y);
+	
+	for (let x = 0; x < w * 0.775; x += 8) {
 		let waveH = Math.sin((x + d * bigSpd) * bigW) * bigH;
-		waveH += Math.sin((x + d * smallSpd) * smallW) * smallH;
+		waveH -= Math.sin(x / (w * 0.775) * Math.PI) * 50;
+		// waveH += Math.sin((x + d * smallSpd) * smallW) * smallH;
 		ctx.lineTo(x, y - waveH);
 	}
 	ctx.lineTo(w, h);
