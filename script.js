@@ -1,5 +1,8 @@
 let navObjs;
 let contentWindow;
+let screensaver;
+let ctx;
+const mod = 1|0;
 
 function updateContent(content) {
 	const contentTarget = document.querySelector(".content");
@@ -65,7 +68,7 @@ function fetchSvg(node, data) {
 		node.innerHTML = content;
 		const txt = document.createElement('p');
 		txt.innerText = data.text;
-		node.appendChild(txt);
+		// node.appendChild(txt);
 	});
 }
 
@@ -95,12 +98,61 @@ function closeWindow() {
 	contentWindow.classList.add("inactive");
 }
 
+function loopCanvas(ms) {
+	const box = document.querySelector("main").getBoundingClientRect();
+	screensaver.width = box.width * mod;
+	screensaver.height = box.height * mod;
+	let w = screensaver.width;
+	let h = screensaver.height;
+	let d = Math.round(ms);
+	// console.log(ctx)
+	ctx.fillStyle = "#00D158";
+	// console.log(w, h)
+	ctx.fillRect(0, 0, w, h);
+	ctx.fillStyle = "#2E2A28";
+	ctx.beginPath();
+	let y = h * 0.75;
+	ctx.moveTo(0, y);
+	
+	const bigSpd = 0.2;
+	const bigW = 1 / 35;
+	const bigH = 40;
+	
+	const smallSpd = 1.55;
+	const smallW = 1 / 500;
+	const smallH = 40;
+	
+	for (let x = 0; x < w + 100; x += 20) {
+		let waveH = Math.sin((x + d * bigSpd) * bigW) * bigH;
+		waveH += Math.sin((x + d * smallSpd) * smallW) * smallH;
+		ctx.lineTo(x, y - waveH);
+	}
+	ctx.lineTo(w, h);
+	ctx.lineTo(0, h);
+	// ctx.stroke();
+	ctx.fill();
+	
+	requestAnimationFrame((ms) => loopCanvas(ms));
+}
+
+function initCanvas() {
+	screensaver = document.querySelector("canvas");
+	const box = document.querySelector("main").getBoundingClientRect();
+	screensaver.width = box.width * mod;
+	screensaver.height = box.height * mod;
+	ctx = screensaver.getContext("2d");
+	
+	requestAnimationFrame((ms) => loopCanvas(ms));
+}
+
 function init() {
 	contentWindow = document.querySelector(".window");
 	navObjs = Array.from(document.querySelectorAll("#nav ul"));
 	navObjs.forEach(nav => nav.onclick = () => fetchContent(nav));
 	
 	document.querySelector(".exit").addEventListener("click", () => closeWindow());
+	
+	initCanvas();
 }
 
 window.addEventListener('load', () => init());

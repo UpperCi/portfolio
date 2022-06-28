@@ -19,7 +19,7 @@ $red: #FA6446
 
 
 body
-	background-color: black
+	background-color: $green
 	margin: 0
 	color: $white
 	font-family: 'Karla', sans-serif
@@ -29,7 +29,6 @@ body
 		$padding-v: 4rem
 		$padding-h: 2rem
 		padding: $padding-v $padding-h
-		background-color: $green
 		margin: 0
 		width: calc(100% - var(--sidebar-width))
 		height: 100vh
@@ -143,12 +142,12 @@ $win-height: calc(100% - 8rem)
 			width: 5rem
 			object-fit: contain
 			fill: $black
-			filter: drop-shadow( 0px 0px 4px rgba(0, 0, 0, .3))
+			// filter: drop-shadow( 0px 0px 0px rgba(0, 0, 0, .3))
 			transition: all 0.15s
 			margin-right: 0.5rem
 			
-			&:hover
-				fill: $green
+			// &:hover
+			// 	fill: $green
 
 
 .contact
@@ -170,6 +169,12 @@ $win-height: calc(100% - 8rem)
 		
 		&:hover
 			stroke: $green
+
+canvas
+	position: absolute
+	z-index: -10
+	width: 100%
+	height: 100%
 
 .project-view
 	$margin: 18px
