@@ -4,6 +4,7 @@ $white: #F6F5F6
 $green: #00D158
 $black: #2E2A28
 $red: #FA6446
+$blue: #0D4985
 
 @mixin text-stroke($size, $col)
 	-webkit-text-stroke-width: $size
@@ -232,6 +233,22 @@ canvas
 		margin: 0 3rem
 
 		font-family: 'Carter One', sans-serif
+
+
+.external-links a
+	border-radius: 6px
+	padding: 4px 8px
+	font-weight: bold
+	text-decoration: none
+	background-color: $white
+	border: 2px solid $blue
+	color: $blue
+	
+	&:hover
+		color: $white
+		background-color: $blue
+	
+	transition: all 0.2s
 
 
 @mixin project-item($img-url)
