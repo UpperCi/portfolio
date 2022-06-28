@@ -37,6 +37,7 @@ body
 		h1
 			margin: 0
 
+$win-height: calc(100% - 8rem)
 
 @keyframes popup
 	0%
@@ -48,16 +49,16 @@ body
 		width: calc(10% - 1rem)
 		margin-left: calc(45% - 0.5rem)
 	90%
-		height: calc(100% - 12rem)
+		height: $win-height
 	100%
 		margin-top: 0
 		width: calc(100% - 12rem)
-		height: calc(100% - 12rem)
+		height: $win-height
 		margin-left: 6rem
 		
 @keyframes popdown
 	0%
-		height: calc(100% - 12rem)
+		height: $win-height
 		margin-top: 0px
 	100%
 		height: 0px
@@ -68,6 +69,7 @@ body
 	$btm-radius: 6px
 	margin: 0 6rem
 	height: 0px
+	max-height: calc(100% - 6rem)
 	overflow: hidden
 	font-family: 'Karla', sans-serif
 	
@@ -112,6 +114,8 @@ body
 		background-color: $white
 		height: 100%
 		border-radius: 0 0 $btm-radius $btm-radius
+		display: block
+		clear: both
 
 		h1
 			margin: 0.5rem 0
@@ -121,7 +125,7 @@ body
 			margin-bottom: 2rem
 		
 		img
-			float: right
+			float: inline-end
 			max-width: 40%
 			max-height: calc(100% - 6rem)
 			border-radius: 8px
@@ -132,10 +136,11 @@ body
 
 .tech-icons
 	display: flex
+	flex-wrap: wrap
 	div
 		svg
-			height: 4rem
-			width: 4rem
+			height: 5rem
+			width: 5rem
 			object-fit: contain
 			fill: $black
 			filter: drop-shadow( 0px 0px 4px rgba(0, 0, 0, .3))
@@ -144,7 +149,27 @@ body
 			
 			&:hover
 				fill: $green
-	
+
+
+.contact
+	display: flex
+	svg
+		height: 5rem
+		width: 5rem
+		object-fit: contain
+		fill: $black
+		transition: all 0.15s
+			
+		&:hover
+			fill: $green
+			filter: drop-shadow( 0px 0px 8px rgba(135, 255, 155, .6))
+		
+	.mail svg
+		fill: transparent
+		stroke: $black
+		
+		&:hover
+			stroke: $green
 
 .project-view
 	$margin: 18px

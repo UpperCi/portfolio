@@ -37,18 +37,18 @@ body main h1 {
     margin-left: calc(45% - 0.5rem);
   }
   90% {
-    height: calc(100% - 12rem);
+    height: calc(100% - 8rem);
   }
   100% {
     margin-top: 0;
     width: calc(100% - 12rem);
-    height: calc(100% - 12rem);
+    height: calc(100% - 8rem);
     margin-left: 6rem;
   }
 }
 @keyframes popdown {
   0% {
-    height: calc(100% - 12rem);
+    height: calc(100% - 8rem);
     margin-top: 0px;
   }
   100% {
@@ -59,6 +59,7 @@ body main h1 {
 .window {
   margin: 0 6rem;
   height: 0px;
+  max-height: calc(100% - 6rem);
   overflow: hidden;
   font-family: "Karla", sans-serif;
 }
@@ -100,6 +101,8 @@ body main h1 {
   background-color: #F6F5F6;
   height: 100%;
   border-radius: 0 0 6px 6px;
+  display: block;
+  clear: both;
 }
 .window .content h1 {
   margin: 0.5rem 0;
@@ -109,7 +112,7 @@ body main h1 {
   margin-bottom: 2rem;
 }
 .window .content img {
-  float: right;
+  float: inline-end;
   max-width: 40%;
   max-height: calc(100% - 6rem);
   border-radius: 8px;
@@ -120,10 +123,11 @@ body main h1 {
 
 .tech-icons {
   display: flex;
+  flex-wrap: wrap;
 }
 .tech-icons div svg {
-  height: 4rem;
-  width: 4rem;
+  height: 5rem;
+  width: 5rem;
   object-fit: contain;
   fill: #2E2A28;
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.3));
@@ -132,6 +136,28 @@ body main h1 {
 }
 .tech-icons div svg:hover {
   fill: #00D158;
+}
+
+.contact {
+  display: flex;
+}
+.contact svg {
+  height: 5rem;
+  width: 5rem;
+  object-fit: contain;
+  fill: #2E2A28;
+  transition: all 0.15s;
+}
+.contact svg:hover {
+  fill: #00D158;
+  filter: drop-shadow(0px 0px 8px rgba(135, 255, 155, 0.6));
+}
+.contact .mail svg {
+  fill: transparent;
+  stroke: #2E2A28;
+}
+.contact .mail svg:hover {
+  stroke: #00D158;
 }
 
 .project-view {

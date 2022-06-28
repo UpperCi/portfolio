@@ -16,6 +16,10 @@ function updateContent(content) {
 		thumb.onmouseleave = () => nav.firstElementChild.blur();
 	}
 	
+	const bottom = document.createElement("div");
+	bottom.classList.add("bottom");
+	contentTarget.appendChild(bottom);
+	
 	initTech();
 }
 
@@ -25,31 +29,31 @@ const TECH_DATA = {
 		"text": "MySQL"
 	},
 	"mongodb" : {
-		"icon": "mongodb.svg"
+		"icon": "mongodb.svg",
 		"text": "MongoDB"
 	},
 	"nodejs" : {
-		"icon": "nodejs.svg"
+		"icon": "nodejs.svg",
 		"text": "NodeJS"
 	},
 	"js" : {
-		"icon": "js.svg"
+		"icon": "js.svg",
 		"text": "JavaScript"
 	},
 	"py" : {
-		"icon": "python.svg"
+		"icon": "python.svg",
 		"text": "Python"
 	},
 	"sass" : {
-		"icon": "sass.svg"
+		"icon": "sass.svg",
 		"text": "Sass"
 	},
 	"react" : {
-		"icon": "react.svg"
+		"icon": "react.svg",
 		"text": "React"
 	},
 	"ml" : {
-		"icon": "ai.svg"
+		"icon": "ai.svg",
 		"text": "Machine Learning"
 	},
 }
@@ -57,7 +61,12 @@ const TECH_DATA = {
 function fetchSvg(node, data) {
 	fetch(`icons/${data.icon}`)
 	.then(response => response.text())
-	.then(content => node.innerHTML = content);
+	.then(content => {
+		node.innerHTML = content;
+		const txt = document.createElement('p');
+		txt.innerText = data.text;
+		node.appendChild(txt);
+	});
 }
 
 function initTech() {
