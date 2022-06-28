@@ -118,6 +118,22 @@ body main h1 {
   margin-top: 1.5rem;
 }
 
+.tech-icons {
+  display: flex;
+}
+.tech-icons div svg {
+  height: 4rem;
+  width: 4rem;
+  object-fit: contain;
+  fill: #2E2A28;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.3));
+  transition: all 0.15s;
+  margin-right: 0.5rem;
+}
+.tech-icons div svg:hover {
+  fill: #00D158;
+}
+
 .project-view {
   display: flex;
   flex-wrap: wrap;

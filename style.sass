@@ -128,7 +128,23 @@ body
 			margin-left: 4rem
 			margin-right: 2rem
 			margin-top: 1.5rem
+		
+
+.tech-icons
+	display: flex
+	div
+		svg
+			height: 4rem
+			width: 4rem
+			object-fit: contain
+			fill: $black
+			filter: drop-shadow( 0px 0px 4px rgba(0, 0, 0, .3))
+			transition: all 0.15s
+			margin-right: 0.5rem
 			
+			&:hover
+				fill: $green
+	
 
 .project-view
 	$margin: 18px

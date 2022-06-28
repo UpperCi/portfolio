@@ -29,3 +29,19 @@ Makkelijk te lezen font.
 - Catch [ML5 AI, JS]
 - Wordle Bot [Python]
 - Claire [Express JS MVC, MySQL + Sequelize (ORM), Decision Tree]
+
+# Icons
+- Github
+- Machine Learning
+- JS
+- NodeJS
+- Python
+- React
+- MongoDB
+- MySQL
+
+- Email
+- LinkedIn
+
+icons8
+
