@@ -45,3 +45,8 @@ Makkelijk te lezen font.
 
 icons8
 
+Feedback
+Expliciete call to action, vertellen dat ik naar een stage zoek.
+Duidelijk vertellen dat ik om gebruiksvriendelijkheid en toegankelijkheid geef.
+Duidelijk maken dat de projectknoppen klikbaar zijn.
+
