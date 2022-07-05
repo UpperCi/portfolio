@@ -1,7 +1,0 @@
-]0;upper@Danis-lap: ~/school/branding/site[01;32mupper@Danis-lap[00m:[01;34m~/school/branding/site[00m$ git add .
-]0;upper@Danis-lap: ~/school/branding/site[01;32mupper@Danis-lap[00m:[01;34m~/school/branding/site[00m$ git commit -, [K[Km "d[Kgrammar"
-[master d9f50ab] grammar
- 2 files changed, 3 insertions(+), 4 deletions(-)
-]0;upper@Danis-lap: ~/school/branding/site[01;32mupper@Danis-lap[00m:[01;34m~/school/branding/site[00m$ echo $GIT_TOKEN
-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
-]0;upper@Danis-lap: ~/school/branding/site[01;32mupper@Danis-lap[00m:[01;34m~/school/branding/site[00m$ 
