@@ -42,13 +42,14 @@ $blue: #0D4985
 	
 	+mq(720px, 1600px)
 		--win-hm: 1.5rem
-		--win-vm: 1.5rem
 	
 	+mq(0, 1280px)
 		--sidebar-width: 0%
 	
-	+mq(0, 720px)
+	+mq(0, 900px)
 		--win-vm: 0rem
+	
+	+mq(0, 720px)
 		--win-hm: 0rem
 
 body
@@ -100,7 +101,7 @@ $win-height: calc(100% - var(--win-vm))
 		animation: popdown ease 0.33s normal forwards
 	
 	&.active
-		animation: popup cubic-bezier(0.4, 0, 0.8, 1) 0.5s normal forwards
+		animation: popup cubic-bezier(0.4, 0, 0.8, 1) 0.33s normal forwards
 
 	.title-bar
 		height: 3rem
@@ -128,8 +129,13 @@ $win-height: calc(100% - var(--win-vm))
 	
 	.content
 		padding: 1.5rem
-		color: $black
 		font-size: 24px
+		
+		+mq(0, 720px)
+			font-size: 18px
+			padding: 0.5rem
+			
+		color: $black
 		background-color: $white
 		height: calc(100% - 3rem)
 		border-radius: 0 0 $btm-radius $btm-radius
@@ -160,7 +166,7 @@ $win-height: calc(100% - var(--win-vm))
 				
 			+mq(0, 900px)
 				object-fit: cover
-				margin: 0.5rem
+				margin: 0
 				width: 100%
 				max-width: 100%
 				max-height: 30%
@@ -207,6 +213,8 @@ canvas
 	z-index: -10
 	width: 100%
 	height: 100%
+	+mq(0, 1280px)
+		width: 130%
 
 .project-view
 	$margin: 18px
@@ -306,7 +314,7 @@ canvas
 
 .active-window ~ aside
 	+mq(0, 1280px)
-		display: none !important
+		top: 100vh
 
 aside
 	position: fixed
@@ -318,13 +326,16 @@ aside
 	height: 100vh
 	overflow: hidden
 	
+	transition: top 0.4s
+	
 	+mq(0, 1280px)
 		height: 100vh
 		width: 100%
 		
 	#nav
-		+mq(0, 1280px)
-			margin-top: 30%
+		// @media screen and (min-height: 900px)
+		+mq(720px, 1280px)
+			margin-top: 10vh
 
 	li, ul
 		list-style-type: none
@@ -346,6 +357,9 @@ aside
 			aspect-ratio: 1/1
 			width: 50%
 			max-width: 150px
+			+mq(0, 720px)
+				max-width: 125px
+			
 			background-size: 80%
 			background-repeat: no-repeat
 			background-position: center
@@ -359,19 +373,19 @@ aside
 				width: 100%
 
 		#windows
-			@include project-item("icons/Windows")
+			+project-item("icons/Windows")
 		
 		#apple
-			@include project-item("icons/Apple")
+			+project-item("icons/Apple")
 		
 		#wordle
-			@include project-item("icons/Wordle")
+			+project-item("icons/Wordle")
 		
 		#dt
-			@include project-item("icons/Tree")
+			+project-item("icons/Tree")
 		
 		#claire
-			@include project-item("icons/Claire")
+			+project-item("icons/Claire")
 
 	ul
 		&:not(.current)
@@ -393,6 +407,8 @@ aside
 			border: none
 			font-weight: inherit
 			+mq(1280px, 1600px)
+				font-size: 32px
+			+mq(0, 720px)
 				font-size: 32px
 
 			&:focus
