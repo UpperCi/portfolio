@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Karla:wght@300;400;500;600;700&display=swap')
 
 $white: #F6F5F6
+$white_trans: #F6F5F6D4
 $green: #00D158
 $black: #2E2A28
 $red: #FA6446
@@ -58,6 +59,7 @@ body
 	color: $white
 	font-family: 'Karla', sans-serif
 	display: flex
+	overflow: hidden
 
 	main
 		padding: 4rem 2rem
@@ -178,6 +180,9 @@ $win-height: calc(100% - var(--win-vm))
 		svg
 			height: 5rem
 			width: 5rem
+			+mq(0, 720px)
+				height: 4.25rem
+				width: 4.25rem
 			object-fit: contain
 			fill: $black
 			// filter: drop-shadow( 0px 0px 0px rgba(0, 0, 0, .3))
@@ -214,23 +219,31 @@ canvas
 	width: 100%
 	height: 100%
 	+mq(0, 1280px)
-		width: 130%
+		width: 133%
 
 .project-view
-	$margin: 18px
+	--margin: 18px
+	
+	+mq(0, 900px)
+		--margin: 10px
 	
 	display: flex
 	flex-wrap: wrap
 	flex-direction: row
-	height: calc(100% - $margin * 4 - 3rem)
+	height: calc(100% - var(--margin) * 2 - 3rem)
+	+mq(0, 900px)
+		height: calc(100% - var(--margin) * 2 - 1rem)
 	align-content: stretch
 	
 	.project-view-button
 		padding: 0
-		flex-basis: calc(30% - $margin * 2)
-		flex-grow: 1.5
+		flex-basis: calc(30% - var(--margin) * 2)
 		max-height: 50%
-		margin: $margin
+		+mq(0, 720px)
+			flex-basis: calc(46% - var(--margin) * 2)
+			max-height: 32%
+		flex-grow: 1.5
+		margin: var(--margin)
 		border: none
 		cursor: pointer
 		border-radius: 16px
@@ -239,7 +252,7 @@ canvas
 		
 		&:hover, &:focus
 			margin: 0
-			max-height: calc(50% + $margin * 2)
+			max-height: calc(50% + var(--margin) * 2)
 			opacity: 60%
 		
 		img
@@ -331,6 +344,7 @@ aside
 	+mq(0, 1280px)
 		height: 100vh
 		width: 100%
+		background-color: $white_trans
 		
 	#nav
 		// @media screen and (min-height: 900px)
@@ -355,7 +369,7 @@ aside
 		ul
 			border-radius: 50%
 			aspect-ratio: 1/1
-			width: 50%
+			width: 45%
 			max-width: 150px
 			+mq(0, 720px)
 				max-width: 125px
@@ -364,9 +378,10 @@ aside
 			background-repeat: no-repeat
 			background-position: center
 			margin: 1rem auto
-			// border-radius: 
-			border: none
 			background-color: transparent
+			
+			&:hover, &:focus-within, &.current
+				border: solid 2px $green
 
 			button
 				height: 100%
@@ -396,7 +411,7 @@ aside
 		padding: 16px 16px
 		margin: 2rem auto
 		border-radius: 20rem
-		border: 2px solid $white
+		border: 2px solid transparent
 		font-weight: 400
 
 		button

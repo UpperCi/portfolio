@@ -134,7 +134,7 @@ function loopCanvas(ms) {
 	
 	ctx.moveTo(0, y);
 	
-	for (let x = 0; x < w * 0.775; x += 8) {
+	for (let x = 0; x < w * 0.8; x += 8) {
 		let waveH = Math.sin((x + d * bigSpd) * bigW) * bigH;
 		waveH -= Math.sin(x / (w * 0.775) * Math.PI) * 50;
 		// waveH += Math.sin((x + d * smallSpd) * smallW) * smallH;

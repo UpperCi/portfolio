@@ -35,6 +35,7 @@ body {
   color: #F6F5F6;
   font-family: "Karla", sans-serif;
   display: flex;
+  overflow: hidden;
 }
 body main {
   padding: 4rem 2rem;
@@ -173,6 +174,12 @@ body main h1 {
   transition: all 0.15s;
   margin-right: 0.5rem;
 }
+@media screen and (max-width: 720px) {
+  .tech-icons div svg {
+    height: 4.25rem;
+    width: 4.25rem;
+  }
+}
 
 .contact {
   display: flex;
@@ -204,23 +211,34 @@ canvas {
 }
 @media screen and (max-width: 1280px) {
   canvas {
-    width: 130%;
+    width: 133%;
   }
 }
 
 .project-view {
+  --margin: 18px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  height: calc(100% - 72px - 3rem);
+  height: calc(100% - var(--margin) * 2 - 3rem);
   align-content: stretch;
+}
+@media screen and (max-width: 900px) {
+  .project-view {
+    --margin: 10px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .project-view {
+    height: calc(100% - var(--margin) * 2 - 1rem);
+  }
 }
 .project-view .project-view-button {
   padding: 0;
-  flex-basis: calc(30% - 36px);
-  flex-grow: 1.5;
+  flex-basis: calc(30% - var(--margin) * 2);
   max-height: 50%;
-  margin: 18px;
+  flex-grow: 1.5;
+  margin: var(--margin);
   border: none;
   cursor: pointer;
   border-radius: 16px;
@@ -228,9 +246,15 @@ canvas {
   opacity: 100%;
   transition: all 0.2s;
 }
+@media screen and (max-width: 720px) {
+  .project-view .project-view-button {
+    flex-basis: calc(46% - var(--margin) * 2);
+    max-height: 32%;
+  }
+}
 .project-view .project-view-button:hover, .project-view .project-view-button:focus {
   margin: 0;
-  max-height: calc(50% + 36px);
+  max-height: calc(50% + var(--margin) * 2);
   opacity: 60%;
 }
 .project-view .project-view-button img {
@@ -315,6 +339,7 @@ aside {
   aside {
     height: 100vh;
     width: 100%;
+    background-color: rgba(246, 245, 246, 0.831372549);
   }
 }
 @media screen and (min-width: 720px) and (max-width: 1280px) {
@@ -340,19 +365,21 @@ aside #projects {
 aside #projects ul {
   border-radius: 50%;
   aspect-ratio: 1/1;
-  width: 50%;
+  width: 45%;
   max-width: 150px;
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
   margin: 1rem auto;
-  border: none;
   background-color: transparent;
 }
 @media screen and (max-width: 720px) {
   aside #projects ul {
     max-width: 125px;
   }
+}
+aside #projects ul:hover, aside #projects ul:focus-within, aside #projects ul.current {
+  border: solid 2px #00D158;
 }
 aside #projects ul button {
   height: 100%;
@@ -429,7 +456,7 @@ aside ul {
   padding: 16px 16px;
   margin: 2rem auto;
   border-radius: 20rem;
-  border: 2px solid #F6F5F6;
+  border: 2px solid transparent;
   font-weight: 400;
   transition: background-color 0.3s, border 0.3s, font-weight 0.15s, box-shadow 0.25s;
 }
