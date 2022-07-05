@@ -1,14 +1,26 @@
 let navObjs;
+let main;
 let contentWindow;
 let screensaver;
 let ctx;
 const mod = 1|0;
 
+function toggleWindow(active = true) {
+	if (active) {
+		contentWindow.classList.remove("inactive");
+		contentWindow.classList.add("active");
+		main.classList.add("active-window");
+	} else {
+		contentWindow.classList.remove("active");
+		contentWindow.classList.add("inactive");
+		main.classList.remove("active-window");
+	}
+}
+
 function updateContent(content) {
 	const contentTarget = document.querySelector(".content");
 	contentTarget.innerHTML = content;
-	contentWindow.classList.remove("inactive");
-	contentWindow.classList.add("active");
+	toggleWindow(true);
 	
 	const projectThumbnails = document.querySelectorAll(".project-view-button");
 	for (let thumb of projectThumbnails) {
@@ -94,8 +106,7 @@ function fetchContent(node) {
 
 function closeWindow() {
 	navObjs.forEach(nav => nav.classList.remove("current"));
-	contentWindow.classList.remove("active");
-	contentWindow.classList.add("inactive");
+	toggleWindow(false);
 }
 
 function loopCanvas(ms) {
@@ -149,6 +160,7 @@ function initCanvas() {
 
 function init() {
 	contentWindow = document.querySelector(".window");
+	main = document.querySelector("main")
 	navObjs = Array.from(document.querySelectorAll("#nav ul"));
 	navObjs.forEach(nav => nav.onclick = () => fetchContent(nav));
 	

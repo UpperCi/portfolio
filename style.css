@@ -5,6 +5,25 @@
 
 :root {
   --sidebar-width: 22.5%;
+  --win-hm: 6rem;
+  --win-vm: 8rem;
+}
+@media screen and (min-width: 720px) and (max-width: 1600px) {
+  :root {
+    --win-hm: 1.5rem;
+    --win-vm: 1.5rem;
+  }
+}
+@media screen and (max-width: 1280px) {
+  :root {
+    --sidebar-width: 0%;
+  }
+}
+@media screen and (max-width: 720px) {
+  :root {
+    --win-vm: 0rem;
+    --win-hm: 0rem;
+  }
 }
 
 body {
@@ -20,34 +39,28 @@ body main {
   width: calc(100% - var(--sidebar-width));
   height: 100vh;
 }
+@media screen and (max-width: 900px) {
+  body main {
+    padding: 0.5rem;
+  }
+}
 body main h1 {
   margin: 0;
 }
 
 @keyframes popup {
   0% {
-    margin-top: calc(100% - 50vh);
-    margin-left: calc(50% - 6rem);
     height: 0px;
-    width: 0px;
-  }
-  40% {
-    width: calc(10% - 1rem);
-    margin-left: calc(45% - 0.5rem);
-  }
-  90% {
-    height: calc(100% - 8rem);
+    margin-top: calc(25% - 3rem);
   }
   100% {
-    margin-top: 0;
-    width: calc(100% - 12rem);
-    height: calc(100% - 8rem);
-    margin-left: 6rem;
+    height: calc(100% - var(--win-vm));
+    margin-top: 0px;
   }
 }
 @keyframes popdown {
   0% {
-    height: calc(100% - 8rem);
+    height: calc(100% - var(--win-vm));
     margin-top: 0px;
   }
   100% {
@@ -56,11 +69,10 @@ body main h1 {
   }
 }
 .window {
-  margin: 0 6rem;
   height: 0px;
-  max-height: calc(100% - 6rem);
   overflow: hidden;
   font-family: "Karla", sans-serif;
+  transition: all 0.3s;
 }
 .window.inactive {
   animation: popdown ease 0.33s normal forwards;
@@ -98,7 +110,7 @@ body main h1 {
   color: #2E2A28;
   font-size: 24px;
   background-color: #F6F5F6;
-  height: 100%;
+  height: calc(100% - 3rem);
   border-radius: 0 0 6px 6px;
   display: block;
   clear: both;
@@ -111,13 +123,33 @@ body main h1 {
   margin-bottom: 2rem;
 }
 .window .content img {
-  float: inline-end;
   max-width: 40%;
   max-height: calc(100% - 6rem);
   border-radius: 8px;
   margin-left: 4rem;
   margin-right: 2rem;
   margin-top: 1.5rem;
+}
+@media screen and (min-width: 900px) {
+  .window .content img {
+    float: inline-end;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1600px) {
+  .window .content img {
+    margin-left: 2rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .window .content img {
+    object-fit: cover;
+    margin: 0.5rem;
+    width: 100%;
+    max-width: 100%;
+    max-height: 30%;
+  }
 }
 
 .tech-icons {
@@ -208,6 +240,16 @@ canvas {
   margin: 0 auto;
   margin-bottom: 2rem;
 }
+@media screen and (min-width: 900px) and (max-width: 1600px) {
+  .brand {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .brand {
+    display: none;
+  }
+}
 .brand h1 {
   text-align: center;
   font-size: 52px;
@@ -216,6 +258,11 @@ canvas {
   -webkit-text-stroke-color: #F6F5F6;
   margin: 0 3rem;
   font-family: "Carter One", sans-serif;
+}
+@media screen and (max-width: 1600px) {
+  .brand h1 {
+    font-size: 48px;
+  }
 }
 
 .external-links a {
@@ -233,6 +280,12 @@ canvas {
   background-color: #0D4985;
 }
 
+@media screen and (max-width: 1280px) {
+  .active-window ~ aside {
+    display: none !important;
+  }
+}
+
 aside {
   position: fixed;
   top: 0;
@@ -241,6 +294,18 @@ aside {
   background-color: #F6F5F6;
   width: var(--sidebar-width);
   height: 100vh;
+  overflow: hidden;
+}
+@media screen and (max-width: 1280px) {
+  aside {
+    height: 100vh;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  aside #nav {
+    margin-top: 30%;
+  }
 }
 aside li, aside ul {
   list-style-type: none;
@@ -258,8 +323,10 @@ aside #projects {
   margin: 0 auto;
 }
 aside #projects ul {
-  width: 120px;
-  height: 120px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: 50%;
+  max-width: 150px;
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
@@ -341,7 +408,7 @@ aside ul {
   width: 70%;
   padding: 16px 16px;
   margin: 2rem auto;
-  border-radius: 64px;
+  border-radius: 20rem;
   border: 2px solid #F6F5F6;
   font-weight: 400;
   transition: background-color 0.3s, border 0.3s, font-weight 0.15s, box-shadow 0.25s;
@@ -355,6 +422,11 @@ aside ul button {
   font-size: 44px;
   border: none;
   font-weight: inherit;
+}
+@media screen and (min-width: 1280px) and (max-width: 1600px) {
+  aside ul button {
+    font-size: 32px;
+  }
 }
 aside ul button:focus {
   border-radius: 4px;
